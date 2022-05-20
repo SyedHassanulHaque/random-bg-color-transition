@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" >
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>color change </title>
+<style>
+*{
+    margin:0px ;
+    padding:0px;
+}
+#main{
+            
+            
+            background:rgb(0,0,0);
+            width:100vw;
+            height: 100vh;
+            display:flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            transition-property:all ;
+            transition-duration:1s;
+            transition-timing-function: linear;
+            
+            }
+        #btn{
+            height: 7vh;
+            width:36vw;
+            background: none;
+            border:2px solid white;
+            border-radius:13px;
+            text-align:center;
+             color: white;
+             margin: 10px;
+             font-size:1.2rem;
+             
+            }
+               #btn2{
+            display: none;
+            background: maroon;
+            border:2px solid maroon;
+            border-radius:13px;
+            text-align:center;
+             color: white;
+             margin:40px auto;
+             padding:8px;
+             font-size:1.1rem;
+            }
+            
+       
+</style>
+</head>
+<body>
+<div id="main">
+
+<button id="btn">Start</button>
+
+<button id="btn2">Custumize Duration</button>
+</div>
+
+<script>
+alert("This is a random color changing webpage.Click start button to see the effect . Hope you enjoy it .")
+var heading=document.getElementById ('heading');
+function color()
+{
+var x, y, z;
+var main=document.getElementById('main');
+var btn=document.getElementById('btn');
+        x = Math.floor(Math.random() * 225);
+        y = Math.floor(Math.random() * 225);
+        z = Math.floor(Math.random() * 225);
+//main.style.background=`rgb(${x},${y},${z})`;
+main.style.background="rgb("+x+","+y+","+y+")";
+
+}
+
+var ti,value ;
+var t=2000;
+var btn =document.getElementById('btn');
+btn.addEventListener ('click',
+function click ()
+{    
+    if(btn.innerHTML=="Start")
+    {
+        btn.innerHTML="Stop";
+        ti=setInterval(color,t);
+    }
+   else if(btn.innerHTML=="Stop")
+    {    btn.innerHTML="Start";
+        
+        clearInterval(ti);
+    }
+     
+}
+) 
+
+
+btn2.addEventListener('click',
+function run(){
+    value=prompt('Enter the duration for one color (in milliseconds)',1000);
+    t=value;
+
+    
+}
+);
+
+</script>
+</body>
+</html>
